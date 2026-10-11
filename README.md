@@ -1,33 +1,19 @@
-# FINM Portfolio & Risk Management — Harvard's Endowment (Group Case)
+# FINM 36700 Portfolio & Risk Management — Group Assignments
 
-Case: https://markhendricks.github.io/finm-portfolio/case_studies/Harvard%27s%20Endowment.html
+Each assignment lives in its own folder with a self-contained notebook (the submission file) and its own `data/`.
 
-## Structure
-```
-data/multi_asset_etf_data.xlsx   # course data (monthly ETF returns)
-harvard_endowment.ipynb          # single group write-up (submission file)
-requirements.txt
-```
+| # | Case | Folder | Status |
+|---|---|---|---|
+| 1 | [Harvard's Endowment](https://markhendricks.github.io/finm-portfolio/case_studies/Harvard%27s%20Endowment.html) | [`hw1_harvard_endowment/`](hw1_harvard_endowment/) | ✅ done |
+| 2 | [ProShares Replication](https://markhendricks.github.io/finm-portfolio/case_studies/ProShares%20Replication.html) | [`hw2_proshares_replication/`](hw2_proshares_replication/) | 🚧 in progress |
 
-## Progress
-| Section | Status | Owner |
-|---|---|---|
-| 1. Reading: HMC's Approach | not required | – |
-| 2.1 Summary Statistics | ✅ done | |
-| 2.2 Descriptive Analysis | ✅ done | |
-| 2.3 The MV Frontier | ✅ done | |
-| 2.4 TIPS | ✅ done | |
-| 3. Allocations (EW / RP / MV) | ✅ done | |
-| 4–7. EXTRA | not required | – |
-
-## Conventions (please keep consistent)
-- Data is loaded once in the *Setup* cell into `rets` (= excess returns, SHV subtracted, **QAI dropped**, 10 assets).
-- `FREQ = 12`; use `performance_summary(df)` to report annualized mean / vol / Sharpe.
+## Conventions (all assignments)
+- One notebook per assignment, **self-contained** aside from standard packages (don't import helpers from other folders).
+- Read data with relative paths (`data/...`) and run the notebook from its own folder.
 - Annualize **statistics only** (mean ×12, vol ×√12), never the raw time series.
-- Add your section below the previous one; re-run *Kernel → Restart & Run All* before committing.
+- Before committing: *Restart & Run All*. Before starting work: `git pull`. Don't edit the same notebook at the same time.
 
 ## Setup
 ```bash
 pip install -r requirements.txt
-jupyter notebook harvard_endowment.ipynb
 ```
