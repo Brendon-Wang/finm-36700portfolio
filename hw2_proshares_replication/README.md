@@ -7,8 +7,8 @@ Submission file: `proshares_replication.ipynb` · Data: `data/proshares_analysis
 | Section | Status | Owner |
 |---|---|---|
 | 1. Reading: The ProShares ETF Product | ⬜ todo | |
-| 2.1 Summary statistics (mean / vol / Sharpe) | ⬜ todo | |
-| 2.2 Tail risk (skew, kurtosis, VaR, CVaR, max drawdown) | ⬜ todo | |
+| 2.1 Summary statistics (mean / vol / Sharpe) | ✅ done | Vincent |
+| 2.2 Tail risk (skew, kurtosis, VaR, CVaR, max drawdown) | ✅ done | Vincent |
 | 2.3 Regression on SPY (beta, Treynor, IR) | ⬜ todo | Daniil / Ansh |
 | 2.4 Discussion | ⬜ todo | Daniil / Ansh |
 | 2.5 Correlation matrix + heat map | ⬜ todo | Daniil / Ansh |
