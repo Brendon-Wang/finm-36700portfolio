@@ -6,7 +6,7 @@ Submission file: `proshares_replication.ipynb` · Data: `data/proshares_analysis
 
 | Section | Status | Owner |
 |---|---|---|
-| 1. Reading: The ProShares ETF Product | ⬜ todo | |
+| 1. Reading: The ProShares ETF Product | ✅ done | Ansh |
 | 2.1 Summary statistics (mean / vol / Sharpe) | ✅ done | Vincent |
 | 2.2 Tail risk (skew, kurtosis, VaR, CVaR, max drawdown) | ✅ done | Vincent |
 | 2.3 Regression on SPY (beta, Treynor, IR) | ✅ Done | Daniil  |
