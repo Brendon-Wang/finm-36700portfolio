@@ -10,10 +10,10 @@ Submission file: `proshares_replication.ipynb` · Data: `data/proshares_analysis
 | 2.1 Summary statistics (mean / vol / Sharpe) | ✅ done | Vincent |
 | 2.2 Tail risk (skew, kurtosis, VaR, CVaR, max drawdown) | ✅ done | Vincent |
 | 2.3 Regression on SPY (beta, Treynor, IR) | ✅ Done | Daniil  |
-| 2.4 Discussion | ✅ todo | Daniil  |
+| 2.4 Discussion | ✅ done | Daniil |
 | 2.5 Correlation matrix + heat map | ✅ Done |  Daniil |
 | 2.6 In-sample replication of HFRI (6 Merrill factors) | ✅ Done|Daniil |
-| 2.7 Out-of-sample rolling 60-month replication | ⬜ todo | Brendon |
+| 2.7 Out-of-sample rolling 60-month replication | ✅ done | Brendon |
 | 3–4. EXTRA | not required | – |
 | Final review & submission | ⬜ todo | Brendon |
 
