@@ -6,10 +6,11 @@ Submission file: `barnstable_long_run_risk.ipynb` · Data: `data/barnstable_anal
 
 | Section | Status | Owner |
 |---|---|---|
-| 1. Reading: Barnstable | ⬜ todo | |
+| 1. Reading: Barnstable | ✅ done | Ansh |
 | 2.1 Summary statistics | ✅ done | Daniil |
 | 2.2 Probability of underperformance (2.1–2.3) | ✅ done | Brendon |
 | 2.3 Full sample analysis (1965–2025) | ✅ done | Brendon |
-| 2.4 In-sample estimate of OOS likelihood | ⬜ todo | |
+| 2.4 In-sample estimate of OOS likelihood | ✅ done | Vincent |
+| Final review & submission | ✅ done | Ansh |
 
 Notes: `log['EXCESS']` = monthly log excess return; `prob_underperform(h, sharpe)` = Φ(−√h·SR).
