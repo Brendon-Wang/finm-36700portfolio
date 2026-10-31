@@ -118,6 +118,8 @@ def decile_sort(beta, panel, n_groups=10, first_formation=FIRST_FORMATION):
     pre, count = ex.copy(), ex.copy()
     for k, i in enumerate(rows):
         ok = ok_all[i]
+        if ok.sum() < n_groups:              # no estimates yet (e.g. long windows early on)
+            continue
         b, c = b_all[i, ok], cap_all[i, ok]
         r = np.nan_to_num(ret_all[i + 1, ok], nan=0.0)
         group = np.ceil(_ranks(b) * n_groups / len(b)).astype(int)
@@ -130,8 +132,9 @@ def decile_sort(beta, panel, n_groups=10, first_formation=FIRST_FORMATION):
 
     idx = dates[rows + 1]
     cols = pd.Index(range(1, n_groups + 1), name="decile")
-    return (pd.DataFrame(ex, idx, cols), pd.DataFrame(pre, idx, cols),
-            pd.DataFrame(count, idx, cols).astype(int))
+    keep = ~np.isnan(count[:, 0])
+    return (pd.DataFrame(ex, idx, cols)[keep], pd.DataFrame(pre, idx, cols)[keep],
+            pd.DataFrame(count, idx, cols)[keep].astype(int))
 
 
 def nyse_breakpoint(panel, pct):
@@ -172,6 +175,8 @@ def build_book(sort_beta, panel, lev_beta=None, weighting="rank", screen=None,
     for i in rows:
         idx = np.flatnonzero(ok_all[i])
         n = len(idx)
+        if n < 2:                             # no estimates yet (e.g. long windows early on)
+            continue
         rank = _ranks(sb_all[i, idx])
         long = rank <= (n + 1) // 2           # odd count: the middle stock goes long
 
@@ -208,6 +213,7 @@ def build_book(sort_beta, panel, lev_beta=None, weighting="rank", screen=None,
         small = cap_all[i, idx] < small_cut[i]
         penny = prc_all[i, idx] < 5
         records.append({
+            "date": dates[i + 1],
             "beta_L": beta_l, "beta_H": beta_h, "lev_L": lev_l, "lev_H": lev_h,
             "cash": 1 - lev_l + lev_h, "n_L": int(long.sum()), "n_H": int((~long).sum()),
             "r_L": r_l, "r_H": r_h, "book": lev_l * r_l - lev_h * r_h, "rf": rf[i + 1],
@@ -219,8 +225,7 @@ def build_book(sort_beta, panel, lev_beta=None, weighting="rank", screen=None,
             nz = np.flatnonzero(w)
             weight_frames.append(pd.DataFrame({"date": dates[i], "permno": permnos[nz], "weight": w[nz]}))
 
-    book = pd.DataFrame(records, index=dates[rows + 1])
-    book.index.name = "date"
+    book = pd.DataFrame(records).set_index("date")
     book["failed"] = book["book"] + book["rf"] < -1     # lost more than the book's capital
     if return_weights:
         return book, pd.concat(weight_frames, ignore_index=True)
