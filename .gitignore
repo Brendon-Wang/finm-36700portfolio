@@ -6,3 +6,5 @@ __pycache__/
 
 # BAB project data (large, from the course site)
 Project_Beta/*.parquet
+Project_Beta/data/
+Project_Beta/output/*.parquet
