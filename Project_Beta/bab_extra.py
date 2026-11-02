@@ -17,11 +17,11 @@ import pandas as pd
 
 import bab_core as bc
 
-DATA_DIR = Path(__file__).resolve().parent / "data"
+DATA_DIR = Path(__file__).resolve().parent 
 
 
 def load_panel(data_dir=DATA_DIR):
-    """bab_core.load_panel pointed at Project_Beta/data."""
+    """bab_core.load_panel pointed at Project_Beta"""
     return bc.load_panel(data_dir)
 
 
